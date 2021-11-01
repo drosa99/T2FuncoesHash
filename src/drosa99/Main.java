@@ -8,6 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
+//Autora: Daniela Amaral
 public class Main {
 
     private static MessageDigest md;
@@ -27,6 +28,7 @@ public class Main {
 
     }
 
+    //metodo que printa o H0
     private static void buscarH0(byte[][] blocos, int length){
         int qtdBlocos = blocos.length;
         byte[][] blocosHash = new byte[qtdBlocos][];
@@ -49,6 +51,7 @@ public class Main {
 
     }
 
+    //metodo auxiliar para concatenar 2 arrays de bytes
     private static byte[] concatenarArrays(byte[] a, byte[] b){
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream( );
         try {
@@ -61,11 +64,12 @@ public class Main {
         return outputStream.toByteArray();
     }
 
-
+    //metodo para gerar hash de um array de bytes
     private static byte[] gerarHash(byte[] bloco) {
         return md.digest(bloco);
     }
 
+    //separa o video em uma matriz de bytes
     private static byte[][] preencherBlocos(byte[] video){
         int tamBloco = 1024;
         int ultimoIndex = 0;
@@ -82,6 +86,7 @@ public class Main {
         return blocos;
     }
 
+    //metodo auxiliar para ler o arquivo e colocar em array de bytes
     private static byte[] leituraArquivo(String filename) {
         File f = new File("files/"  + filename);
         try {
